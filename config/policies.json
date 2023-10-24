@@ -1,0 +1,77 @@
+{
+  "policies": [
+    {
+      "handler": {
+        "export": "ApiKeyInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "allowUnauthenticatedRequests": false
+        }
+      },
+      "name": "api-key-inbound",
+      "policyType": "api-key-inbound"
+    },
+    {
+      "handler": {
+        "export": "RateLimitInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "rateLimitBy": "user",
+          "requestsAllowed": 1,
+          "timeWindowMinutes": 0.06
+        }
+      },
+      "name": "rate-limit-inbound",
+      "policyType": "rate-limit-inbound"
+    },
+    {
+      "handler": {
+        "export": "RequestValidationInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "logLevel": "info",
+          "validateBody": "reject-and-log",
+          "includeRequestInLogs": true
+        }
+      },
+      "name": "request-validation-inbound",
+      "policyType": "request-validation-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "content-type",
+              "value": "application/json",
+              "overwrite": true
+            }
+          ]
+        }
+      },
+      "name": "force-content-type-json",
+      "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/no-api-key)"
+      },
+      "name": "no-api-key-or-body",
+      "policyType": "custom-code-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/rbac)",
+        "options": {
+          "role": "admin"
+        }
+      },
+      "name": "custom-code-inbound",
+      "policyType": "custom-code-inbound"
+    }
+  ]
+}

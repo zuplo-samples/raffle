@@ -1,0 +1,91 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Win Lego with Zuplo",
+    "description": "Welcome to API World. This API was built (in a few hours) using Zuplo as a gateway over a simple datastorage backend.\n\nTo enter the raffle\n\n 1/ [Sign-in](/docs/zp/login) to get an API key.\n\n2/ Use the test console on the **[Enter the raffle](#enter-the-raffle)** route ![Test Console](https://cdn.zuplo.com/uploads/test-console.png)\n\n3/ Submit your name and e-mail as part of the JSON body\n\n4/ Come back at 5:30pm to see who wins (you have to be there).\n\n Good luck!"
+  },
+  "paths": {
+    "/v1/entries": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Enter the raffle",
+        "description": "Make a POST using the Test Console to this endpoint to enter the raffle. Check out the example body below.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/create-entry)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "force-content-type-json",
+              "no-api-key-or-body",
+              "request-validation-inbound",
+              "api-key-inbound"
+            ]
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name",
+                  "email"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Full Name",
+                    "description": "Your full name (e.g. Sarah Wilkinson)"
+                  },
+                  "email": {
+                    "type": "string",
+                    "title": "E-mail address",
+                    "description": "Your valid e-mail address"
+                  }
+                },
+                "examples": [
+                  {
+                    "name": "Your_full_name",
+                    "email": "Your_email"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "operationId": "dba4f349-d599-4d87-9d8a-813959b718c1"
+      }
+    },
+    "/pick-the-winner": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Pick the winner 👏",
+        "description": "We'll use this endpoint to pick the winner of today's raffle",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/pick-a-winner)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "rate-limit-inbound",
+              "custom-code-inbound"
+            ]
+          }
+        },
+        "operationId": "40da2805-cd43-4edc-af54-05ab075c35d5"
+      }
+    }
+  }
+}
