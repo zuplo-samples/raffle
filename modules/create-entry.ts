@@ -17,7 +17,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     .from('entries')
     .insert([
       {
-        sub: request.user.sub,
+        sub: crypto.randomUUID(),
         name: entry.name,
         email: entry.email
       }

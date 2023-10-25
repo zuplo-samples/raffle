@@ -1,16 +1,7 @@
 {
   "$schema": "https://cdn.zuplo.com/schemas/dev-portal.json",
-  "enableAuthentication": true,
+  "enableAuthentication": false,
   "pageTitle": "Zuplo Raffle",
   "faviconUrl": "https://cdn.zuplo.com/dev-portal/v2/favicon-dev.ico",
-  "authentication": {
-    "provider": "auth0",
-    "authority": "https://auth.zuplo.io/",
-    "jwksUrl": "https://auth.zuplo.io/.well-known/jwks.json",
-    "devPortalClient": {
-      "clientId": "uuZraAziJZvcUMYgmMLtSrcB3w2PLTNV",
-      "audience": "https://raffle.zuplo.io/"
-    }
-  },
   "generateExamples": true
 }
