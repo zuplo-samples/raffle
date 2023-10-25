@@ -62,7 +62,7 @@
         "operationId": "dba4f349-d599-4d87-9d8a-813959b718c1"
       }
     },
-    "/v1/pick-the-winner": {
+    "/pick-the-winner": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -85,6 +85,31 @@
           }
         },
         "operationId": "40da2805-cd43-4edc-af54-05ab075c35d5"
+      }
+    },
+    "/": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Redirect to docs",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "redirectHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "location": "/docs",
+              "status": 302
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "f5091642-b292-4c83-aa7f-e430b01b62e9",
+        "x-internal": true
       }
     }
   }
