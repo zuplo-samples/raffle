@@ -62,7 +62,7 @@
         "operationId": "dba4f349-d599-4d87-9d8a-813959b718c1"
       }
     },
-    "/pick-the-winner": {
+    "/v1/pick-the-winner": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
