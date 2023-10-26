@@ -22,6 +22,7 @@
           },
           "policies": {
             "inbound": [
+              "custom-code-inbound-1",
               "force-content-type-json",
               "no-api-key-or-body",
               "request-validation-inbound"

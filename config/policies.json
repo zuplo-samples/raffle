@@ -72,6 +72,18 @@
       },
       "name": "custom-code-inbound",
       "policyType": "custom-code-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/no-more)",
+        "options": {
+          "config1": "YOUR_VALUE",
+          "config2": true
+        }
+      },
+      "name": "custom-code-inbound-1",
+      "policyType": "custom-code-inbound"
     }
   ]
 }
