@@ -17,7 +17,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
     .from('entries')
     .insert([
       {
-        sub: crypto.randomUUID(),
+        sub: entry.email.toLowerCase(),
         name: entry.name,
         email: entry.email
       }
@@ -39,7 +39,7 @@ one entry per person!`, { status: 400 });
 
 You have been entered into the raffle.
 
-You have to be present at 5:30pm when 
+You have to be present at 6pm when 
 we announce the winner to be eligible 
 for the prize!`);
 }

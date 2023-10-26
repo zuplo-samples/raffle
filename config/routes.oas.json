@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Win Lego with Zuplo",
-    "description": "Welcome to API World. This API was built (in a few hours) using Zuplo as a gateway over a simple data storage backend.\n\nTo enter the raffle\n\n1/ Use the test console on the **[Enter the raffle](#enter-the-raffle)** route ![Test Console](https://cdn.zuplo.com/uploads/test-console.png)\n\n2/ Submit your name and e-mail as part of the JSON body\n\n3/ Come back at 5:30pm to see who wins (you have to be there).\n\n Good luck!"
+    "description": "Welcome to API World. This API was built (in a few hours) using Zuplo as a gateway over a simple datastorage backend. This is the Zuplo developer portal that comes with your gateway. Let's use this and the API to enter the raffle. \n\nTo enter the raffle\n\n1/ Use the test console on the **[Enter the raffle](#enter-the-raffle)** route ![Test Console](https://cdn.zuplo.com/uploads/test-console.png)\n\n2/ Submit your name and e-mail as part of the JSON body\n\n3/ Come back at 4:05pm to see who wins (you have to be there).\n\n Good luck!\n\n[Terms and Conditions](https://zuplo.com/docs/conferences/conference-prize-terms)"
   },
   "paths": {
     "/v1/entries": {
@@ -101,7 +101,7 @@
             "module": "$import(@zuplo/runtime)",
             "options": {
               "location": "/docs",
-              "status": 302
+              "status": 301
             }
           },
           "policies": {
